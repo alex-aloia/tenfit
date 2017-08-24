@@ -2,50 +2,13 @@ import style from './index.scss';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {combineReducers, createStore} from 'redux';
+import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 
+import reducers from './reducers/index';
 import App from './components/App';
 // import Routing from './components/Routing';
 
-
-const maskVisibility = (state = 'SHOW', action) => {
-    switch (action.type) {
-        case 'SET_MASK_VISIBILITY':
-            return action.visibility;
-        default:
-            return state;
-    }
-};
-
-const mainMenu = (state = [], action) => {
-    switch (action.type) {
-        case 'LOAD_MENU':
-            // console.log('action.items', [...state, ...action.items]);
-            
-            return [...state, ...action.items];
-        default:
-            return state;
-    }
-};
-
-
-const pageContent = (state = '', action) => {
-    switch (action.type) {
-        case 'LOAD_PAGE':
-            console.log('action.content', action.content);
-
-            return action.content;
-        default:
-            return state;
-    }
-};
-
-const reducers = combineReducers({
-    maskVisibility,
-    mainMenu,
-    pageContent
-});
 
 const store = createStore(
     reducers,
