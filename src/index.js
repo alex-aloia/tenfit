@@ -1,25 +1,16 @@
-import style from './index.scss';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Provider} from 'react-redux';
-
-import store from './store';
-import App from './components/App';
-// import Routing from './components/Routing';
-
+import Root from './components/Root';
+import style from './index.scss';
 
 import $ from 'jquery';
 window.$ = $;
 // import whatInput from 'what-input';
+// import Foundation from 'foundation-sites';
 
-import Foundation from 'foundation-sites';
 
 ReactDOM.render(
-    //<Routing />,
-    <Provider store={store}>
-        <App/>
-    </Provider>,
+    <Root />,
     document.getElementById('root')
 );
 

@@ -11,6 +11,8 @@ const src  = path.join(__dirname, 'src'),
 // path      : path.resolve(__dirname, 'dist'),
 
 module.exports = {
+    devtool: 'source-map',
+
     entry: [
         'webpack-hot-middleware/client?reload=true',
         `${src}/index.js`
@@ -18,6 +20,7 @@ module.exports = {
 
     output: {
         path      : dist,
+        // path: path.join(__dirname, '/dist/'),
         filename  : '[name].js',
         publicPath: '/'
     },
@@ -28,7 +31,7 @@ module.exports = {
             title   : 'Development',
             filename: 'index.html',
             template: `${src}/index.hbs`,
-            inject: 'body',
+            // inject: 'body',
         }),
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),

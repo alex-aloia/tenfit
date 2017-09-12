@@ -6,11 +6,12 @@ const path                 = require('path'),
       config               = require('./webpack.config.js'),
 
       isDeveloping         = process.env.NODE_ENV !== 'production',
-      port                 = isDeveloping ? 3000 : process.env.PORT,
+      // port                 = isDeveloping ? 3000 : process.env.PORT,
+      port                 = 3000,
       app                  = express();
 
 if (isDeveloping) {
-    compiler         = webpack(config);
+    const compiler         = webpack(config);
     const middleware = webpackMiddleware(compiler, {
         publicPath : config.output.publicPath,
         contentBase: 'src',
